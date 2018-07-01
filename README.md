@@ -11,12 +11,8 @@ AWS主页：https://us-west-2.console.aws.amazon.com/console/home?region=us-west
 如果系统是裸机需要安装Python
 
 1 .在 CentOS 7 中安装 Python 之前，请确保系统中已经有了所有必要的开发依赖如gcc环境等：
-
-（1）
-（2）
 # yum -y groupinstall development
 # yum -y install zlib-devel
-
 2 .安装或升级python版本
 （1）下载源码包,后面的下载链接直接在python官网找的，如果想安装更高的版本自行更换
      wget https://www.python.org/ftp/python/2.7.10/Python-2.7.10.tgz
