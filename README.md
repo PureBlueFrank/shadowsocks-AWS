@@ -1,4 +1,4 @@
-# -
+亚马逊云EC2 Linux服务器上安装shadowsocks服务端
 整理的关于AWS+shadowsocks翻墙资料
 前要
 
