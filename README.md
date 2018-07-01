@@ -1,5 +1,5 @@
 亚马逊云EC2 Linux服务器上安装shadowsocks服务端
-整理的关于AWS+shadowsocks翻墙资料
+
 前要
 
 亚马逊云AWS使用教程：https://amazonaws-china.com/cn/getting-started/?sc_channel=em&sc_campaign=wlcm&sc_publisher=aws&sc_medium=em_wlcm_1&sc_detail=wlcm_1d&sc_content=other&sc_country=global&sc_geo=global&sc_category=mult&ref_=pe_1679150_261538020
