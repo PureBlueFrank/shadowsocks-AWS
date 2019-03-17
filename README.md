@@ -65,7 +65,7 @@ worker数量
 8、本地设备连接到Shadowsocks服务器
 到GitHub下载最新的客户端：
 Windows客户端下载地址
-macOS客户端下载地址
+macOS客户端下载地址 ：https://github.com/shadowsocks/ShadowsocksX-NG/releases
 Linux客户端下载地址
 
 安装之后，添加服务器，地址为AWS的外网地址，登录AWS控制台，查看正在运行中的实例，找到公有ip。 端口号为刚才配置Shadowsocks服务器时的端口号，密码也是刚才配置的(当然密码可以自行设置)，设置完之后保存。
