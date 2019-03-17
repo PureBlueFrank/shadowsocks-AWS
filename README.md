@@ -8,6 +8,10 @@
 
 AWS主页：https://us-west-2.console.aws.amazon.com/console/home?region=us-west-2
 
+SSH登录EC2主机：
+ssh -i "LinuxKeyPair.pem" ec2-user@ec2-34-213-115-240.us-west-2.compute.amazonaws.com
+或 ssh -i ~/.ssh/LinuxKeyPair.pem ec2-user@34.213.115.240
+
 如果系统是裸机需要安装Python
 
 1 .在 CentOS 7 中安装 Python 之前，请确保系统中已经有了所有必要的开发依赖如gcc环境等：
