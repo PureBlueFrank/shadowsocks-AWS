@@ -19,28 +19,28 @@ ssh -i "LinuxKeyPair.pem" ec2-user@ec2-34-213-115-240.us-west-2.compute.amazonaw
 # yum -y install zlib-devel
 2 .安装或升级python版本
 （1）下载源码包,后面的下载链接直接在python官网找的，如果想安装更高的版本自行更换
-     wget https://www.python.org/ftp/python/2.7.10/Python-2.7.10.tgz
+    $ wget https://www.python.org/ftp/python/2.7.10/Python-2.7.10.tgz
 （2）解压压缩包        
-     tar xvf Python-2.7.10.tgz
+    $ tar xvf Python-2.7.10.tgz
 （3）指定安装路径     
-     cd Python-2.7.10
-     ./configure --prefix=/usr/local/python2
+    $ cd Python-2.7.10
+    $ ./configure --prefix=/usr/local/python2
 （4）编译并安装
-     make
-     make install
+    $ sudo make
+    $ sudo make install
 （5）创建链接将python指向2.7版本
-     rm -f /usr/bin/python
-     ln -s /usr/local/python2/bin/python /usr/bin/python
+    $ sudo rm -f /usr/bin/python
+    $ sudo ln -s /usr/local/python2/bin/python /usr/bin/python
 
 3.安装pip
-     yum install python-pip
+    $ sudo yum install python-pip
 
 4.安装shadowsocks
-     pip install shadowsocks
+    $ sudo pip install shadowsocks
 
 5.创建ss配置文件 
-     mkdir /etc/shadowsocks
-     vim /etc/shadowsocks/ss.json
+    $ sudo mkdir /etc/shadowsocks
+    $ sudo vim /etc/shadowsocks/ss.json
      配置文件内容：
      {     "server":"0.0.0.0",     "server_port":443,     "local_address":"127.0.0.1",     "local_port":1080,     "password":"www.jianshu.com/u/e02df63eaa87",     "timeout":300,     "method":"aes-256-cfb",     "fast_open":false,     "workers": 1     }
 配置字段	说明
@@ -59,10 +59,17 @@ worker数量
 启动：sudo ssserver -c /etc/shadowsocks/ss.json -d start 停止：sudo ssserver -c /etc/shadowsocks/ss.json -d stop 重启：sudo ssserver -c /etc/shadowsocks/ss.json -d restart
 服务器上关于shadowsocks的一些命令：https://blog.whsir.com/post-1045.html
 7、设置SS为开机自启动
- vi /etc/rc.local
+ $ sudo vi /etc/rc.local
 加入：sudo ssserver -c /etc/shadowsocks/ss.json -d start
 
-8、本地设备连接到Shadowsocks服务器
+8、BBR加速shadowsocks
+安装完成以后，发现其实速度可能并不是很快，可以进行加速，加速方法也有不少，好像都对内核有要求，BBR也是让我成功加速的一种，输入命令：
+$ wget –no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
+$ chmod +x bbr.sh
+$ ./bbr.sh
+安装完，重启一下shadowsocks，应该就ok了。加速参考：https://www.zybuluo.com/Tyhj/note/1172287
+
+9、本地设备连接到Shadowsocks服务器
 到GitHub下载最新的客户端：
 Windows客户端下载地址
 macOS客户端下载地址 ：https://github.com/shadowsocks/ShadowsocksX-NG/releases
@@ -72,15 +79,13 @@ Linux客户端下载地址
 
 关于Windows下使用Shadowsocks的方法，还请自行搜索。
 
-9、防止AWS到期或其他原因扣费
+10、防止AWS到期或其他原因扣费
 为了防止流量超出或者此悲剧发生。
 需要设置账单警报，前面已经介绍了。
 还有就是在安全组下面设置入站和出站规则。
 注意: 到期前把你账户下所有AWS实例关闭并销毁。
 
 
-
-参考链接：https://www.jianshu.com/p/b5db24490e18
 
 
 注意：亚马逊AWS EC2 ping不通的原因
